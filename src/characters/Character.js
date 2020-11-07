@@ -27,7 +27,9 @@ class Character {
     return [
       {
         type: 'attack',
-        fn: this.doAttack()
+        fn: () => {
+          this.doAttack()
+        }
       }
     ];
   }
