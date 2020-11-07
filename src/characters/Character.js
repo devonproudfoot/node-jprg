@@ -20,6 +20,22 @@ class Character {
     return this.currentHP;
   }
 
+  getMaxHealth() {
+    return this.maxHP;
+  }
+
+  getMP() {
+    return this.currentMP;
+  }
+
+  getMaxMP() {
+    return this.maxMP;
+  }
+
+  getName() {
+    return this.name;
+  }
+
   getAttacked(damage) {
     this.currentHP -= (damage - this.defense);
   }

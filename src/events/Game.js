@@ -1,6 +1,7 @@
 const enemyPool = require('../../gameJson/characters/enemies');
 const Hero = require('../characters/Hero');
 const Battle = require('../events/Battle');
+const { displayPartyInfo, displayBattleInfo } = require('../outputs/outputs');
 
 const path = require('path');
 const fs = require('fs');
@@ -23,7 +24,8 @@ class Game {
     // while (this.gameInProgress) {
     //   this.startBattle();
     // }
-    this.startBattle();
+    // this.startBattle();
+    displayPartyInfo(this.party);
   }
 
   // needs work
