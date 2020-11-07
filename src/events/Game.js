@@ -24,6 +24,7 @@ class Game {
 
   playGame() {
     const startUp = chooseAction(this.startUpActions());
+    console.log(startUp);
     // startUp.fn();
 
     // while (this.gameInProgress) {
