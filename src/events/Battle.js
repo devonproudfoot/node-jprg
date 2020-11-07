@@ -30,7 +30,7 @@ class Battle {
   }
 
   heroTurn() {
-
+    
   }
 
   enemyTurn() {
@@ -38,16 +38,13 @@ class Battle {
   }
 
   battleStatus() {
-    let partyHealth = 0;
-    let enemiesHealth = 0;
+    const heroesAlive = this.checkIfTeamIsAlive(this.heroes);
+    const enemiesAlive = this.checkIfTeamIsAlive(this.enemies);
 
-    this.heroes.forEach(hero => partyHealth += hero.getHealth() );
-    this.enemies.forEach(enemy => enemiesHealth += enemy.getHealth() );
-
-    if (!enemiesHealth) {
+    if (!heroesAlive) {
       this.battleInProgress = false;
       this.victory = false;
-    } else if (!partyHealth) {
+    } else if (!enemiesAlive) {
       this.battleInProgress = false;
       this.victory = true;
     }
@@ -69,6 +66,8 @@ class Battle {
     }
   }
 
+  //private functions
+
   setFirstTurn() {
     return (Math.random() > 0.5) ? true : false;
   }
@@ -78,6 +77,15 @@ class Battle {
 
     enemies.forEach( enemy => enemyObjects.push(new Enemy(enemy)) );
     return enemyObjects;
+  }
+
+  checkIfTeamIsAlive(team) {
+    team.forEach(member => {
+      if (member.getHealth() === 0) {
+        return false;
+      }
+    });
+    return true;
   }
 }
 

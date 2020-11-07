@@ -8,10 +8,6 @@ class Enemy extends Character {
   giveExp() {
     return Math.floor((hitPoints + magicPoints + attack + defense) / 100);
   }
-  
-  getActions() {
-    
-  }
 }
 
 module.exports = Enemy;
