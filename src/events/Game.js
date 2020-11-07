@@ -1,7 +1,9 @@
 const enemyPool = require('../../gameJson/characters/enemies');
 const Hero = require('../characters/Hero');
 const Battle = require('../events/Battle');
-const { displayPartyInfo, displayBattleInfo } = require('../outputs/outputs');
+
+const chooseAction = require('../inputs/getInputs');
+const { displayPartyInfo } = require('../outputs/outputs');
 
 const path = require('path');
 const fs = require('fs');
@@ -21,11 +23,14 @@ class Game {
   loadGame() {}
 
   playGame() {
+    const startUp = chooseAction(this.startUpActions());
+    // startUp.fn();
+
     // while (this.gameInProgress) {
-    //   this.startBattle();
+    //   const action = chooseAction(this.inGameActions());
     // }
-    // this.startBattle();
-    displayPartyInfo(this.party);
+
+    // displayPartyInfo(this.party);
   }
 
   // needs work
@@ -51,6 +56,52 @@ class Game {
 
   // Private functions
 
+  startUpActions() {
+    return [
+      {
+        action: 'new game',
+        fn: () => { 
+          this.newGame();
+        }
+      },
+      {
+        action: 'load game',
+        fn: () => {
+          this.loadGame();
+        }
+      },
+      {
+        action: 'quit game',
+        fn: () => {
+          this.quitGame();
+        }
+      }
+    ];
+  }
+
+  inGameActions() {
+    return [
+      {
+        action: 'battle',
+        fn: () => {
+          this.startBattle();
+        }
+      },
+      {
+        action: 'save game',
+        fn: () => {
+          this.saveGame();
+        }
+      },
+      {
+        action: 'quit game',
+        fn: () => {
+          this.quitGame();
+        }
+      }
+    ];
+  }
+
   setParty(partyMembers) {
     partyMembers.forEach(member => {
       this.party.push(new Hero(member));
@@ -58,6 +109,10 @@ class Game {
   }
 
   gameOver() {
+    process.exit();
+  }
+
+  quitGame() {
     process.exit();
   }
 }
