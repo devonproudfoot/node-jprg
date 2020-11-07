@@ -32,17 +32,15 @@ class Character {
     return [
       {
         type: 'attack',
-<<<<<<< HEAD
-        fn: this.doAttack()
+        fn: () => {
+          this.doAttack();
+        },
       },
       {
         type: 'heal',
-        fn: this.healAlly()
-=======
         fn: () => {
-          this.doAttack()
+          this.healAlly();
         }
->>>>>>> refs/remotes/origin/main
       }
     ];
   }
