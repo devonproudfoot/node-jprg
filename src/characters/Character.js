@@ -7,6 +7,7 @@ class Character {
     this.maxMP = character.magicPoints;
     this.attack = character.attack;
     this.defense = character.defense;
+    this.magic = character.magic;
     this.critChance = 0.1;
     this.status = null;
   }
@@ -23,11 +24,19 @@ class Character {
     this.currentHP -= (damage - this.defense);
   }
 
+  healAlly(toHeal=this) {
+    
+  }
+
   getActions() {
     return [
       {
         type: 'attack',
         fn: this.doAttack()
+      },
+      {
+        type: 'heal',
+        fn: this.healAlly()
       }
     ];
   }

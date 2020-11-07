@@ -20,6 +20,21 @@ class Hero extends Character {
     this.defense += this.level * 5;
     this.level += 1;
   }
+
+  run() {
+    
+  }
+
+  getActions() {
+    let actions = super.getActions();
+    actions.push(
+      {
+        type: 'run',
+        fn: this.run()
+      }
+    );
+    return actions;
+  }
 }
 
 module.exports = Hero;
