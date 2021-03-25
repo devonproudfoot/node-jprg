@@ -1,27 +1,24 @@
-const readLine = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+var inquirer = require('inquirer');
 
 function chooseAction(actions) {
-  const maxOption = actions.length;
-  let choice;
-
-  actions.forEach((action, index) => {
-    console.log(`${index + 1}: ${action.action}`);
+  let actionChoices = [];
+  actions.forEach(action => {
+    actionChoices.push(action.action);
   });
 
-  readLine.question(`\nEnter the number of your choice: `, selection => {
-    const selectionNum = +selection;
-
-    if (selectionNum > 0 && selectionNum <= maxOption) {
-      choice = selection - 1;
-    } else {
-      console.log('Invalid selection!');
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'prompt',
+        message: 'Select an option: ',
+        choices: actionChoices
+      }
+    ])
+    .then((answers) => {
+      console.log(answers);
     }
-    readLine.pause();
-  });
-  return actions[choice];
+  );
 }
 
 module.exports = chooseAction;

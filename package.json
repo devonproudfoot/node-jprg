@@ -18,5 +18,8 @@
     "eslint": "^7.12.0",
     "eslint-config-prettier": "6.14.0",
     "prettier": "2.1.2"
+  },
+  "dependencies": {
+    "inquirer": "^8.0.0"
   }
 }
