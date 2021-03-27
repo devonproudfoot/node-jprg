@@ -24,14 +24,13 @@ class Game {
 
   async playGame() {
     const startUp = await chooseAction(this.startUpActions());
-    console.log(startUp);
-    // startUp.fn();
 
-    // while (this.gameInProgress) {
-    //   const action = chooseAction(this.inGameActions());
-    // }
+    startUp.fn();
 
-    // displayPartyInfo(this.party);
+    while (this.gameInProgress) {
+      const action = await chooseAction(this.inGameActions());
+      action.fn();
+    }
   }
 
   // needs work
@@ -89,6 +88,12 @@ class Game {
         }
       },
       {
+        action: 'check party status',
+        fn: () => {
+          this.checkPartyStatus();
+        }
+      },
+      {
         action: 'save game',
         fn: () => {
           this.saveGame();
@@ -115,6 +120,10 @@ class Game {
 
   quitGame() {
     process.exit();
+  }
+
+  checkPartyStatus() {
+    displayPartyInfo(this.party);
   }
 }
 

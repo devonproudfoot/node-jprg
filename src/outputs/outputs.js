@@ -11,7 +11,7 @@ function displayPartyInfo(party) {
 }
 
 function displayCharacterInfo(character) {
-  const name = character.getName();
+  const name = `${character.getName()}: `;
   const health = `${character.getHealth()}/${character.getMaxHealth()} HP`;
   const magic = `${character.getMP()}/${character.getMaxMP()} MP\n`;
   
