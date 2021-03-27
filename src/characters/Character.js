@@ -1,5 +1,6 @@
 class Character {
   constructor(character) {
+    this.id = Math.floor(Math.random() * 100000);
     this.name = character.name;
     this.currentHP = character.hitPoints;
     this.maxHP = character.hitPoints;
@@ -42,6 +43,10 @@ class Character {
 
   healAlly(toHeal=this) {
     
+  }
+
+  returnId() {
+    return this.id;
   }
 
   getActions() {

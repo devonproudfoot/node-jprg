@@ -4,7 +4,8 @@ class Battle {
   constructor(heroes, enemies) {
     this.heroes = heroes;
     this.enemies = this.generateEnemies(enemies);
-    this.turn = this.setFirstTurn();
+    this.turnOrder = this.setTurnOrder();
+    this.currentTurn = this.turnOrder[0];
     this.battleInProgress = true;
     this.victory = false;
   }
@@ -68,8 +69,18 @@ class Battle {
 
   //private functions
 
-  setFirstTurn() {
-    return (Math.random() > 0.5) ? true : false;
+  setTurnOrder() {
+    let order = [];
+
+    this.heroes.forEach(hero => {
+      order.push(hero.returnId());
+    });
+
+    this.enemies.forEach(enemy => {
+      order.push(enemy.returnId());
+    });
+
+    return order;
   }
 
   generateEnemies(enemies) {
