@@ -22,7 +22,8 @@ async function chooseAction(actions, questionPrompt) {
       response = answers.prompt;
     }
   );
-  console.log(response);
+  
+  return actions[actionChoices.indexOf(response)];
 }
 
 module.exports = chooseAction;
