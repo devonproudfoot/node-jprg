@@ -3,6 +3,5 @@
 const Game = require('./src/events/Game');
 
 const currentGame = new Game();
-currentGame.newGame();
 
 currentGame.playGame();
