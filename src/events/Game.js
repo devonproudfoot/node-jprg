@@ -22,8 +22,8 @@ class Game {
 
   loadGame() {}
 
-  playGame() {
-    const startUp = chooseAction(this.startUpActions());
+  async playGame() {
+    const startUp = await chooseAction(this.startUpActions());
     console.log(startUp);
     // startUp.fn();
 

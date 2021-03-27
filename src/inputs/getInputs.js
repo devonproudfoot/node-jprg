@@ -1,24 +1,28 @@
 var inquirer = require('inquirer');
 
-function chooseAction(actions) {
+async function chooseAction(actions, questionPrompt) {
+  questionPrompt = questionPrompt || 'Select an option: ';
   let actionChoices = [];
   actions.forEach(action => {
     actionChoices.push(action.action);
   });
 
-  inquirer
+  let response;
+
+  await inquirer
     .prompt([
       {
         type: 'list',
         name: 'prompt',
-        message: 'Select an option: ',
+        message: questionPrompt,
         choices: actionChoices
       }
     ])
     .then((answers) => {
-      console.log(answers);
+      response = answers.prompt;
     }
   );
+  console.log(response);
 }
 
 module.exports = chooseAction;
