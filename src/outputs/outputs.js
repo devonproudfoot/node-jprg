@@ -1,5 +1,3 @@
-const Character = require('../characters/Character');
-
 function displayBattleInfo(heroes, enemies) {
   displayPartyInfo(enemies);
   console.log('--------------------------');
