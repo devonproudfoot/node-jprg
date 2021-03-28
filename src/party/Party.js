@@ -10,9 +10,17 @@ class Party {
   }
 
   // Private
-
   getMembers() {
     return this.members;
+  }
+
+  getIds() {
+    let memberIds = [];
+    
+    for (let [id] of Object.entries(this.members)) {
+      memberIds.push(id);
+    }
+    return memberIds;
   }
 }
 

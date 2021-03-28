@@ -72,19 +72,16 @@ class Battle {
   setTurnOrder() {
     let order = [];
 
-    this.heroes.forEach(hero => {
-      order.push(hero.returnId());
-    });
-
-    this.enemies.forEach(enemy => {
-      order.push(enemy.returnId());
-    });
+    order.push(...this.heroes.getIds());
+    order.push(...this.enemies.getIds());
 
     return order;
   }
 
   generateEnemies(enemies) {
+    console.log(enemies);
     this.enemies = new EnemyParty(enemies);
+    console.log(enemies);
   }
 
   checkIfTeamIsAlive(team) {
