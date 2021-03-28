@@ -5,7 +5,9 @@ function displayBattleInfo(heroes, enemies) {
 }
 
 function displayPartyInfo(party) {
-  party.forEach(member => displayCharacterInfo(member));
+  for (let [id, member] of Object.entries(party.getMembers())) {
+    displayCharacterInfo(member);
+  }
 }
 
 function displayCharacterInfo(character) {

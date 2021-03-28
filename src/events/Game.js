@@ -1,6 +1,7 @@
 const enemyPool = require('../../gameJson/characters/enemies');
 const Hero = require('../characters/Hero');
 const Battle = require('../events/Battle');
+const HeroParty = require('../characters/HeroParty');
 
 const chooseAction = require('../inputs/getInputs');
 const { displayPartyInfo } = require('../outputs/outputs');
@@ -10,7 +11,7 @@ const fs = require('fs');
 
 class Game {
   constructor() {
-    this.party = [];
+    this.party;
     this.leader = null;
     this.gameInProgress = true;
   }
@@ -109,9 +110,7 @@ class Game {
   }
 
   setParty(partyMembers) {
-    partyMembers.forEach(member => {
-      this.party.push(new Hero(member));
-    });
+    this.party = new HeroParty(partyMembers);
   }
 
   gameOver() {
@@ -123,6 +122,7 @@ class Game {
   }
 
   checkPartyStatus() {
+    console.log(this.party);
     displayPartyInfo(this.party);
   }
 }
