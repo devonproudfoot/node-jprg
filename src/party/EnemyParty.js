@@ -1,6 +1,7 @@
-const Enemy = require('./Enemy');
+const Enemy = require('../characters/Enemy');
+const Party = require('./Party');
 
-class EnemyParty {
+class EnemyParty extends Party {
   constructor(initialMembers) {
     super(initialMembers);
   }

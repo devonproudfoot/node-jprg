@@ -1,4 +1,4 @@
-const Hero = require('./Hero');
+const Hero = require('../characters/Hero');
 const Party = require('./Party');
 
 class HeroParty extends Party {

@@ -1,7 +1,6 @@
 const enemyPool = require('../../gameJson/characters/enemies');
-const Hero = require('../characters/Hero');
 const Battle = require('../events/Battle');
-const HeroParty = require('../characters/HeroParty');
+const HeroParty = require('../party/HeroParty');
 
 const chooseAction = require('../inputs/getInputs');
 const { displayPartyInfo } = require('../outputs/outputs');

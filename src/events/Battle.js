@@ -1,4 +1,4 @@
-const Enemy = require('../characters/Enemy');
+const EnemyParty = require('../party/EnemyParty');
 
 class Battle {
   constructor(heroes, enemies) {
@@ -84,10 +84,7 @@ class Battle {
   }
 
   generateEnemies(enemies) {
-    let enemyObjects = [];
-
-    enemies.forEach( enemy => enemyObjects.push(new Enemy(enemy)) );
-    return enemyObjects;
+    this.enemies = new EnemyParty(enemies);
   }
 
   checkIfTeamIsAlive(team) {
