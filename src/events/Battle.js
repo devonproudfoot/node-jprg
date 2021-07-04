@@ -1,4 +1,4 @@
-const EnemyParty = require('../party/EnemyParty');
+const EnemyParty = require("../party/EnemyParty");
 
 class Battle {
   constructor(heroes, enemies) {
@@ -17,11 +17,11 @@ class Battle {
       },
       enemy: () => {
         this.enemyTurn();
-      }
-    }
+      },
+    };
 
     while (this.battleInProgress) {
-      let currentTurn = this.turn ? 'hero' : 'enemy';
+      let currentTurn = this.turn ? "hero" : "enemy";
 
       turnAction[currentTurn];
       this.battleStatus();
@@ -30,13 +30,9 @@ class Battle {
     return this.completeBattle();
   }
 
-  heroTurn() {
-    
-  }
+  heroTurn() {}
 
-  enemyTurn() {
-
-  }
+  enemyTurn() {}
 
   battleStatus() {
     const heroesAlive = this.checkIfTeamIsAlive(this.heroes);
@@ -54,11 +50,11 @@ class Battle {
   completeBattle() {
     if (this.victory) {
       let expEarned;
-      this.enemies.forEach(enemy => {
+      this.enemies.forEach((enemy) => {
         expEarned += enemy.giveExp();
       });
-      
-      this.heroes.forEach(hero => {
+
+      this.heroes.forEach((hero) => {
         hero.gainExp(expEarned);
       });
       return true;
@@ -85,7 +81,7 @@ class Battle {
   }
 
   checkIfTeamIsAlive(team) {
-    team.forEach(member => {
+    team.forEach((member) => {
       if (member.getHealth() === 0) {
         return false;
       }

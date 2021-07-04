@@ -2,7 +2,7 @@ class Party {
   constructor(initialMembers) {
     initialMembers = initialMembers || null;
 
-    this.members = {}
+    this.members = {};
 
     if (initialMembers) {
       this.addToParty(initialMembers);
@@ -16,7 +16,7 @@ class Party {
 
   getIds() {
     let memberIds = [];
-    
+
     for (let [id] of Object.entries(this.members)) {
       memberIds.push(id);
     }

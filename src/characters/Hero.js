@@ -1,4 +1,4 @@
-const Character = require('./Character');
+const Character = require("./Character");
 
 class Hero extends Character {
   constructor(character) {
@@ -21,18 +21,14 @@ class Hero extends Character {
     this.level += 1;
   }
 
-  run() {
-    
-  }
+  run() {}
 
   getActions() {
     let actions = super.getActions();
-    actions.push(
-      {
-        type: 'run',
-        fn: this.run()
-      }
-    );
+    actions.push({
+      type: "run",
+      fn: this.run(),
+    });
     return actions;
   }
 }

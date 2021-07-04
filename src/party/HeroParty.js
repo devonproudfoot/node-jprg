@@ -1,5 +1,5 @@
-const Hero = require('../characters/Hero');
-const Party = require('./Party');
+const Hero = require("../characters/Hero");
+const Party = require("./Party");
 
 class HeroParty extends Party {
   constructor(initialMembers) {
@@ -8,14 +8,14 @@ class HeroParty extends Party {
 
   // Private
   addToParty(newMembers) {
-    const addSingleMemberToParty = member => {
+    const addSingleMemberToParty = (member) => {
       const id = Math.floor(Math.random() * 100000);
 
       this.members[id] = new Hero(member);
-    }
+    };
 
     if (Array.isArray(newMembers)) {
-      newMembers.forEach(member => {
+      newMembers.forEach((member) => {
         addSingleMemberToParty(member);
       });
     } else {

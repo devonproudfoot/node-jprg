@@ -13,7 +13,7 @@ class Character {
   }
 
   doAttack() {
-    return (this.critChance > Math.random()) ? this.attack * 2 : this.attack;
+    return this.critChance > Math.random() ? this.attack * 2 : this.attack;
   }
 
   getHealth() {
@@ -37,27 +37,25 @@ class Character {
   }
 
   getAttacked(damage) {
-    this.currentHP -= (damage - this.defense);
+    this.currentHP -= damage - this.defense;
   }
 
-  healAlly(toHeal=this) {
-    
-  }
+  healAlly(toHeal = this) {}
 
   getActions() {
     return [
       {
-        type: 'attack',
+        type: "attack",
         fn: () => {
           this.doAttack();
         },
       },
       {
-        type: 'heal',
+        type: "heal",
         fn: () => {
           this.healAlly();
-        }
-      }
+        },
+      },
     ];
   }
 }

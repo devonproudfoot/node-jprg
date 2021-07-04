@@ -1,6 +1,6 @@
 function displayBattleInfo(heroes, enemies) {
   displayPartyInfo(enemies);
-  console.log('--------------------------');
+  console.log("--------------------------");
   displayPartyInfo(heroes);
 }
 
@@ -14,10 +14,10 @@ function displayCharacterInfo(character) {
   const name = `${character.getName()}: `;
   const health = `${character.getHealth()}/${character.getMaxHealth()} HP`;
   const magic = `${character.getMP()}/${character.getMaxMP()} MP\n`;
-  
+
   console.log(name);
   console.log(health);
   console.log(magic);
 }
 
-module.exports = { displayBattleInfo, displayPartyInfo }
+module.exports = { displayBattleInfo, displayPartyInfo };

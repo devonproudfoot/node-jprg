@@ -1,9 +1,9 @@
-var inquirer = require('inquirer');
+var inquirer = require("inquirer");
 
 async function chooseAction(actions, questionPrompt) {
-  questionPrompt = questionPrompt || 'Select an option: ';
+  questionPrompt = questionPrompt || "Select an option: ";
   let actionChoices = [];
-  actions.forEach(action => {
+  actions.forEach((action) => {
     actionChoices.push(action.action);
   });
 
@@ -12,17 +12,16 @@ async function chooseAction(actions, questionPrompt) {
   await inquirer
     .prompt([
       {
-        type: 'list',
-        name: 'prompt',
+        type: "list",
+        name: "prompt",
         message: questionPrompt,
-        choices: actionChoices
-      }
+        choices: actionChoices,
+      },
     ])
     .then((answers) => {
       response = answers.prompt;
-    }
-  );
-  
+    });
+
   return actions[actionChoices.indexOf(response)];
 }
 

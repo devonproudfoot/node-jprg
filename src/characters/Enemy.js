@@ -1,4 +1,4 @@
-const Character = require('./Character');
+const Character = require("./Character");
 
 class Enemy extends Character {
   constructor(character) {
